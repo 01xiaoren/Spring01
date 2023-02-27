@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    构造实例化bean-->
+    <!--    <bean class="com.xiaoren.dao.impl.BookDaoImpl"></bean>-->
+    <!--    静态方式实例化bean-->
+    <!--    <bean id="orderDao" class="com.xiaoren.factory.OrderFactory" factory-method="getOrderDao"/>-->
+    <!--    使用工厂实例化bean-->
+    <!--    <bean id="factory" class="com.xiaoren.factory.UserDaoFactory"></bean>-->
+    <!--    <bean factory-bean="factory" factory-method="getUserDao" id="userDao"/>-->
+
+    <!--    使用FactoryBean实例化bean-->
+    <bean class="com.xiaoren.factory.UserFactoryBean" id="userDao"></bean>
+</beans>
