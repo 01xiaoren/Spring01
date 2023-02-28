@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+    <!--    &lt;!&ndash;    管理DruidDataSource对象&ndash;&gt;
+        <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+            <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/mytestdb"/>
+            <property name="username" value="root"/>
+            <property name="password" value="xiaoren124"/>
+        </bean>
+        &lt;!&ndash; c3p0的；连接信息&ndash;&gt;
+        <bean id="dataSource2" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+            <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mytestdbdb"/>
+            <property name="user" value="root"/>
+            <property name="password" value="xiaoren124"/>
+        </bean>-->
+    <!--    1.开启context命名空间-->
+    <!--    2.使用context空间加载properties文件-->
+    <!--    <context:property-placeholder location="jdbc.properties" system-properties-mode="NEVER"/>-->
+    <!--    <context:property-placeholder location="jdbc.properties,jdbc2.properties" system-properties-mode="NEVER"/>-->
+    <!--    classpath:*.properties  ：   设置加载当前工程类路径中的所有properties文件-->
+    <!--    system-properties-mode属性：是否加载系统属性-->
+    <!--    <context:property-placeholder location="*.properties" system-properties-mode="NEVER"/>-->
+
+    <!--classpath*:*.properties  ：  设置加载当前工程类路径和当前工程所依赖的所有jar包中的所有properties文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+    <bean class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc_driver}"/>
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_url}"/>
+        <property name="password" value="${jdbc_password}"/>
+    </bean>
+    <bean class="com.xiaoren.dao.impl.BookDaoImpl" id="dao">
+        <!--    读取jdbc_username-->
+        <property name="name" value="${jdbc_username}"/>
+    </bean>
+</beans>
