@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.xiaoren.dao.impl.BooDaoImpl" id="bookDao"></bean>
+    <!--   自动装配按按类型byType 唯一推荐
+    byName按名称变量与配置耦合，不建议使用
+    适用于引用数据类型，不适用于简单数据类型
+    -->
+    <bean class="com.xiaoren.service.impl.BookServiceImpl" id="service" autowire="byType"></bean>
+</beans>
