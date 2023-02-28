@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--   构造器注入-->
+    <!--
+            标准模型
+    <bean class="com.xiaoren.dao.impl.BookDaoImpl" id="bookDao">-->
+    <!--        <constructor-arg name="name" value="小张"/>-->
+    <!--        <constructor-arg name="age" value="23"/>-->
+    <!--    </bean>-->
+    <!--    <bean class="com.xiaoren.dao.impl.UserDaoImpl" id="userDao"></bean>-->
+    <!--    <bean class="com.xiaoren.service.impl.BookDaoServiceImpl" id="daoService">-->
+    <!--        <constructor-arg name="userDao" ref="userDao"/>-->
+    <!--        <constructor-arg name="booDao" ref="bookDao"/>-->
+    <!--    </bean>-->
+
+    <!--
+    按类型注入
+      <bean class="com.xiaoren.dao.impl.BookDaoImpl" id="booDao">
+            <constructor-arg type="java.lang.String" value="张三"/>
+            <constructor-arg type="int" value="1"/>
+        </bean>
+        <bean class="com.xiaoren.dao.impl.UserDaoImpl" id="userDao"/>
+        <bean class="com.xiaoren.service.impl.BookDaoServiceImpl" id="service">
+            <constructor-arg name="booDao" ref="booDao"/>
+            <constructor-arg name="userDao" ref="userDao"/>
+        </bean>-->
+
+    <!--    按循序注入-->
+    <bean class="com.xiaoren.dao.impl.BookDaoImpl" id="booDao">
+        <constructor-arg index="0" value="张三"/>
+        <constructor-arg index="1" value="1"/>
+    </bean>
+    <bean class="com.xiaoren.dao.impl.UserDaoImpl" id="userDao"/>
+    <bean class="com.xiaoren.service.impl.BookDaoServiceImpl" id="service">
+        <constructor-arg name="booDao" ref="booDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+</beans>
