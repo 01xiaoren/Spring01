@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.xiaoren.dao.impl.BookDaoImpl" id="bookDao">
+        <!--     集合的注入-->
+        <property name="array">
+            <array>
+                <value>213</value>
+                <value>113</value>
+                <value>173</value>
+                <value>233</value>
+            </array>
+        </property>
+        <!--    list集合注入-->
+        <property name="list">
+            <list>
+                <value>java</value>
+                <value>python</value>
+                <value>c++</value>
+            </list>
+        </property>
+        <!--  ste集合注入-->
+        <property name="set">
+            <set>
+                <value>mysql</value>
+                <value>jdbc</value>
+                <value>Tomcat</value>
+            </set>
+        </property>
+        <!--     map集合的注入-->
+        <property name="map">
+            <map>
+                <entry key="country" value="中国"></entry>
+                <entry key="province" value="陕西"></entry>
+                <entry key="city" value="西安"/>
+            </map>
+        </property>
+        <!--    properties对象-->
+        <property name="properties">
+            <props>
+                <prop key="country">中国</prop>
+                <prop key="province">陕西</prop>
+                <prop key="city">西安</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
